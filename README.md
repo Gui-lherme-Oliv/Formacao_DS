@@ -29,16 +29,13 @@ Os conjuntos de dados disponibilizados pela Udemy estão presentes neste reposit
 1. Faça um programa que tenha uma função chamada amplitude. A função deve receber uma lista e imprimir a amplitude.
 Crie também um código para testar sua função
 ```
-#Resolução
+#RESOLUÇÃO
+
 def amplitude(vet):
     print("Amplitude:", max(vet) - min(vet))
 
 vetor = [12,23,45,2,100]    
 amplitude(vetor)
-```
-```
-#Saída
-Amplitude: 98
 ```
 
 2. Faça uma função que receba uma string e imprima esta string na forma vertical
@@ -52,31 +49,21 @@ n
 Dica: uma string do python funciona como uma lista!
 Crie também um código para testar sua função
 ```
-#Resolução
+#RESOLUÇÃO
+
 def imprime(texto):
     for n in range(0, len(texto)):
         print(texto[n])
 
 imprime("Guilherme")
 ```
-```
-#Saída
-G
-u
-i
-l
-h
-e
-r
-m
-e
-```
 
 3. Crie um programa que leia o peso de uma carga em números inteiros. Se o peso for até 10 kg, informe
 que o valor será de R$ 50,00. Entre 11 e 20 kg, informe que o valor será de R$ 80. Se for maior que 20
 informe que o transporte não é aceito. Teste vários pesos.
 ```
-#Resolução
+#RESOLUÇÃO
+
 peso = 10
 if peso <= 10:
 	print("Valor da carga é de R$ 50,00")
@@ -85,14 +72,76 @@ elif peso >= 11 and peso <=20:
 else:
 	print("O transporte não é aceito")
 ```
-```
-#Saída
-Valor da carga é de R$ 50,00
-```
-
 #### [Voltar ao Sumário](#sumário)
 
 ## 2. Limpeza e Tratamento de Dados
+Tratar dados 'tempo.csv'. Faça cada etapa de forma separada e  lembre-se de tratar os valores NaNs.
+
+Domínio dos atributos:
+- Aparência: sol, nublado, chuva
+- Temperatura: -135 ~ 130 F
+- Umidade: 0 ~ 100
+- Jogar: sim/nao
+```
+#RESOLUÇÃO
+
+import pandas as pd
+import seaborn as srn
+import statistics  as sts
+
+#importar dados
+dataset = pd.read_csv("tempo.csv", sep=";")
+#visualizar
+dataset.head()
+
+#explorar dados categóricos
+#Aparencia
+agrupado_aparencia = dataset.groupby(['Aparencia']).size()
+agrupado_aparencia.plot.bar(color = 'gray')
+
+#Vento
+agrupado_vento = dataset.groupby(['Vento']).size()
+agrupado_vento.plot.bar(color = 'gray')
+
+#Jogar
+agrupado_jogar = dataset.groupby(['Jogar']).size()
+agrupado_jogar.plot.bar(color = 'gray')
+
+#explorar dados numéricos
+#Temperatura
+dataset['Temperatura'].describe()
+
+#Umidade
+dataset['Umidade'].describe()
+
+#contar valores NAN
+dataset.isnull().sum()
+
+#substituindo o valor inválido "menos" pelo valor "sol"
+dataset.loc[dataset['Aparencia'] ==  'menos', 'Aparencia'] = "sol"
+#visualiza o resultado
+agrupado = dataset.groupby(['Aparencia']).size()
+agrupado
+
+#visualizando os valores de "Temperatura" que estão fora do domínio
+dataset.loc[(dataset['Temperatura'] <  -130 )  | ( dataset['Temperatura'] >  130) ]
+
+#calculando a mediana e substituindo o valor fora do domínio por ela
+mediana = sts.median(dataset['Temperatura'])
+dataset.loc[(dataset['Temperatura'] <  -130 )  | ( dataset['Temperatura'] >  130), 'Temperatura'] = mediana
+
+#umidade, dominio e NaNs
+agrupado = dataset.groupby(['Umidade']).size()
+agrupado
+
+#total de NaNs
+dataset['Umidade'].isnull().sum()
+
+#calculando a mediana e preenchendo os NaNs
+mediana = sts.median(dataset['Umidade'])
+dataset['Umidade'].fillna(mediana, inplace=True)
+
+```
 #### [Voltar ao Sumário](#sumário)
 
 ## 3. Gráficos, Visualização e Dashboards
