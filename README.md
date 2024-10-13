@@ -225,7 +225,48 @@ base_final2.shape
 ```
 
 #### 2. Medidas de Centralidade e Variabilidade
+```
+# Importação das bibliotecas: scipy para gerar estatísticas mais detalhadas
+import numpy as np
+from scipy import stats
 
+# Criação da variável com os dados dos jogadores, visualização da média e mediana
+jogadores = [40000, 18000, 12000, 250000, 30000, 140000, 300000, 40000, 800000]
+media = np.mean(jogadores)
+mediana = np.median(jogadores)
+
+# Criação da variável para geração dos quartis (0%, 25%, 50%, 75% e 100%) 
+quartis = np.quantile(jogadores, [0, 0.25, 0.5, 0.75, 1])
+quartis
+
+# Visualização do desvio padrão
+# Quando ddof = 1 é especificado, o cálculo passa a ser o do desvio padrão amostral, usando o denominador N - 1.
+# Isso ajusta o cálculo para amostras de uma população, corrigindo o viés da estimativa.
+np.std(jogadores, ddof = 1)
+
+# Visualização de estatísticas mais detalhadas usando a biblioteca scipy
+stats.describe(jogadores)
+```
+
+#### 3. Distribuição Normal
+```
+# Importação da função norm
+from scipy.stats import norm
+
+# Conjunto de objetos em uma cesta, a média é 8 e o desvio padrão é 2
+# Qual a probabilidade de tirar um objeto que peso é menor que 6 quilos?
+norm.cdf(6, 8, 2)
+
+# Qual a probabilidade de tirar um objeto que o peso á maior que 6 quilos?
+1 - norm.cdf(6, 8, 2)
+
+# Qual a probabilidade de tirar um objeto que o peso é menor que 6 ou maior que 10 quilos?
+# A função sf (survival function) é equivalente a 1 - cdf
+norm.cdf(6, 8, 2) + norm.sf(10, 8, 2)
+
+# Qual a probabilidade de tirar um objeto que o peso é menor que 10 e maior que 8 quilos?
+norm.cdf(10, 8, 2) - norm.cdf(8, 8, 2)
+```
 #### [Voltar ao Sumário](#sumário)
 
 ## 5. Estatística II
