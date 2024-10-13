@@ -45,7 +45,8 @@ Amplitude: 98
 Por exemplo, se receber python, deve imprimir  
 p  
 y  
-t    
+t     
+h  
 o  
 n  
 Dica: uma string do python funciona como uma lista!
