@@ -211,7 +211,8 @@ base.shape
 # Mudança da semente aleatória randômica para manter os resultados em várias execuções
 np.random.seed(2345)
 
-# Amostra aleatória de 150 valores, valores de 0 a 1, com reposição, probabilidades equivalentes (p = [0.7, 0.3] define as probabilidades de ocorrência dos valores 0 e 1)
+# Amostra aleatória de 150 valores, valores de 0 a 1, com reposição, probabilidades equivalentes
+# (p = [0.7, 0.3] define as probabilidades de ocorrência dos valores 0 e 1)
 amostra = np.random.choice(a = [0, 1], size = 150, replace = True, p = [0.7, 0.3])
 amostra
 
