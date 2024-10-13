@@ -75,7 +75,7 @@ else:
 #### [Voltar ao Sumário](#sumário)
 
 ## 2. Limpeza e Tratamento de Dados
-Tratar dados 'tempo.csv'. Faça cada etapa de forma separada e  lembre-se de tratar os valores NaNs.
+Tratar dados "tempo.csv". Faça cada etapa de forma separada e  lembre-se de tratar os valores NaNs.
 
 Domínio dos atributos:
 - Aparência: sol, nublado, chuva
@@ -89,67 +89,107 @@ import pandas as pd
 import seaborn as srn
 import statistics  as sts
 
-#importando dados
+# Importando dados
 dataset = pd.read_csv("tempo.csv", sep=";")
 #visualizar
 dataset.head()
 
-#explorando dados categóricos
+# Explorando dados categóricos
 #Aparencia
 agrupado_aparencia = dataset.groupby(['Aparencia']).size()
 agrupado_aparencia.plot.bar(color = 'gray')
 
-#Vento
+# Vento
 agrupado_vento = dataset.groupby(['Vento']).size()
 agrupado_vento.plot.bar(color = 'gray')
 
-#Jogar
+# Jogar
 agrupado_jogar = dataset.groupby(['Jogar']).size()
 agrupado_jogar.plot.bar(color = 'gray')
 
-#explorando dados numéricos
+# Explorando dados numéricos
 #Temperatura
 dataset['Temperatura'].describe()
 
-#Umidade
+# Umidade
 dataset['Umidade'].describe()
 
-#contando valores NAN
+# Contando valores NAN
 dataset.isnull().sum()
 
-#substituindo o valor inválido "menos" pelo valor "sol"
+# Substituindo o valor inválido "menos" pelo valor "sol"
 dataset.loc[dataset['Aparencia'] ==  'menos', 'Aparencia'] = "sol"
 #visualiza o resultado
 agrupado = dataset.groupby(['Aparencia']).size()
 agrupado
 
-#visualizando os valores de "Temperatura" que estão fora do domínio
+# Visualizando os valores de "Temperatura" que estão fora do domínio
 dataset.loc[(dataset['Temperatura'] <  -130 )  | ( dataset['Temperatura'] >  130) ]
 
-#calculando a mediana e substituindo o valor fora do domínio por ela
+# Calculando a mediana e substituindo o valor fora do domínio por ela
 mediana = sts.median(dataset['Temperatura'])
 dataset.loc[(dataset['Temperatura'] <  -130 )  | ( dataset['Temperatura'] >  130), 'Temperatura'] = mediana
 
-#umidade, dominio e NaNs
+# Umidade, dominio e NaNs
 agrupado = dataset.groupby(['Umidade']).size()
 agrupado
 
-#total de NaNs
+# Total de NaNs
 dataset['Umidade'].isnull().sum()
 
-#calculando a mediana e preenchendo os NaNs
+# Calculando a mediana e preenchendo os NaNs
 mediana = sts.median(dataset['Umidade'])
 dataset['Umidade'].fillna(mediana, inplace=True)
 
-#total de NaNs para "Vento"
+# Total de NaNs para "Vento"
 dataset['Vento'].isnull().sum()
 
-#preenchendo com "FALSO" (que é a maior ocorrência)
+# Preenchendo com "FALSO" (que é a maior ocorrência)
 dataset['Vento'].fillna('FALSO', inplace=True)
 ```
 #### [Voltar ao Sumário](#sumário)
 
 ## 3. Gráficos, Visualização e Dashboards
+1. Arquivo "dados.csv":
+- CODIGO
+- MUNICIPIO
+- PIB
+- VALOREMPENHO
+2. Mostre os municípios com maiores valores de PIB e de EMPENHO
+```
+#RESOLUÇÃO
+
+# Importando as bibliotecas
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as srn
+
+# Carregamento da base de dados
+base = pd.read_csv('dados.csv', sep=';')
+base.shape
+
+base.head()
+
+# Criando histograma da variável "PIB"
+srn.histplot(base.PIB, kde=True, bins=10).set(title='PIB')
+
+# Criando histograma da variável "VALOREMPENHO"
+srn.histplot(base.VALOREMPENHO, kde=True, bins=10).set(title='Empenho')
+
+# Gráfico dos 10 municípios com os maiores valores de PIB
+agrupado = base.sort_values('PIB', ascending=False).head(10)
+agrupado = agrupado.iloc[:, 1:3]
+agrupado
+agrupado.plot.bar(x='MUNICIPIO', y='PIB', color='gray')
+
+# Gráfico dos 10 municípios com os maiores VALOREMPENHO
+agrupado = base.sort_values('VALOREMPENHO').head(10)
+agrupado = agrupado.iloc[:,[1,3]]
+agrupado
+agrupado.plot.bar(x='MUNICIPIO',y='VALOREMPENHO', color = 'gray')
+
+```
 #### [Voltar ao Sumário](#sumário)
 
 ## 4. Estatística I
