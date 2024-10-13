@@ -5,7 +5,7 @@
 
 Estes exercícios foram apresentados no curso **Formação Cientista de Dados: O Curso Completo** oferecido pela plataforma de cursos online [Udemy](https://www.udemy.com/pt/). Este é um curso de Data Science em que se conhece e aprende a aplicar todos os principais conceitos e técnicas para se qualificar e atuar como um Cientista de Dados, com videos explicativos e detalhados, exemplos práticos de codificação em R e Python usando dados reais e explicações de resolução de fórmulas passo a passo. A resolução de todos os exercícios foi feita por mim, construída de acordo com as instruções do professor Fernando Amaral, instrutor responsável por este curso.
 
-Os conjuntos de dados disponibilizados pela Udemy estão presentes neste repositório, no formato .csv dentro da pasta "dados".
+Os conjuntos de dados disponibilizados pela Udemy estão presentes neste repositório, no formato .csv dentro da pasta "dados". Já a resolução dos exercícios estão presentes aqui mesmo, para que tenha uma visualização mais rápida e fácil.
 
 ## Sumário
 #### [1. Introdução ao Python](#1-introdução-ao-python-1)
@@ -89,12 +89,12 @@ import pandas as pd
 import seaborn as srn
 import statistics  as sts
 
-#importar dados
+#importando dados
 dataset = pd.read_csv("tempo.csv", sep=";")
 #visualizar
 dataset.head()
 
-#explorar dados categóricos
+#explorando dados categóricos
 #Aparencia
 agrupado_aparencia = dataset.groupby(['Aparencia']).size()
 agrupado_aparencia.plot.bar(color = 'gray')
@@ -107,14 +107,14 @@ agrupado_vento.plot.bar(color = 'gray')
 agrupado_jogar = dataset.groupby(['Jogar']).size()
 agrupado_jogar.plot.bar(color = 'gray')
 
-#explorar dados numéricos
+#explorando dados numéricos
 #Temperatura
 dataset['Temperatura'].describe()
 
 #Umidade
 dataset['Umidade'].describe()
 
-#contar valores NAN
+#contando valores NAN
 dataset.isnull().sum()
 
 #substituindo o valor inválido "menos" pelo valor "sol"
@@ -141,6 +141,11 @@ dataset['Umidade'].isnull().sum()
 mediana = sts.median(dataset['Umidade'])
 dataset['Umidade'].fillna(mediana, inplace=True)
 
+#total de NaNs para "Vento"
+dataset['Vento'].isnull().sum()
+
+#preenchendo com "FALSO" (que é a maior ocorrência)
+dataset['Vento'].fillna('FALSO', inplace=True)
 ```
 #### [Voltar ao Sumário](#sumário)
 
