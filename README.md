@@ -21,9 +21,9 @@ Os conjuntos de dados disponibilizados pela Udemy estão presentes neste reposit
 #### [11. Grafos](#11-grafos-1)
 #### [12. Processamento de Linguagem Natural e Mineração de Texto](#12-processamento-de-linguagem-natural-e-mineração-de-texto-1)
 #### [13. Bancos de Dados e Linguagem SQL](#13-bancos-de-dados-e-linguagem-sql-1)
-#### [14. Bancos de Dados NoSQL e MongoDB](#1-introdução-ao-python-1)
-#### [15. Computação na Nuvem](#1-introdução-ao-python-1)
-#### [16. Spark com Databricks](#1-introdução-ao-python-1)  
+#### [14. Bancos de Dados NoSQL e MongoDB](#14-bancos-de-dados-nosql-e-mongodb-1)
+#### [15. Computação na Nuvem](#15-computação-na-nuvem-1)
+#### [16. Spark com Databricks](#16-spark-com-databricks-1)  
 ---
 ## 1. Introdução ao Python
 #### [Voltar ao Sumário](#sumário)
@@ -73,8 +73,5 @@ Os conjuntos de dados disponibilizados pela Udemy estão presentes neste reposit
 ## 16. Spark com Databricks
 #### [Voltar ao Sumário](#sumário)
 
-
-
-#### [Voltar ao Sumário](#sumário)
 </div>
 
