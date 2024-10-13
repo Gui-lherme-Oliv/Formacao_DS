@@ -3,7 +3,7 @@
 # Resolução de exercícios práticos de Data Science utilizando Python
 #### Autor: Guilherme Oliveira da Rocha Cunha
 
-Estes exercícios foram apresentados no curso **Formação Cientista de Dados: O Curso Completo** oferecido pela plataforma de cursos online [Udemy](https://www.udemy.com/pt/). Este é um curso de Data Science em que se conhece e aprende a aplicar todos os principais conceitos e técnicas para se qualificar e atuar como um Cientista de Dados, com videos explicativos e detalhados, exemplos práticos de codificação em R e Python usando dados reais e explicações de resolução de fórmulas passo a passo. A resolução de todos os exercícios foi feita por mim, construída de acordo com as instruções do professor Fernando Amaral, instrutor responsável por este curso.
+Estes exercícios foram apresentados no curso **Formação Cientista de Dados: O Curso Completo** oferecido pela plataforma de cursos online [Udemy](https://www.udemy.com/pt/). Este é um curso de Data Science em que se conhece e aprende a aplicar todos os principais conceitos e técnicas para se qualificar e atuar como um Cientista de Dados, com videos explicativos e detalhados, exemplos práticos de codificação em R e Python usando dados reais e explicações de resolução de fórmulas passo a passo. A resolução de todos os exercícios foi feita por mim, construída de acordo com as instruções dos professores Fernando Amaral e Jones Granatyr, instrutores responsáveis por este curso.
 
 Os conjuntos de dados disponibilizados pela Udemy estão presentes neste repositório, no formato .csv dentro da pasta "dados". Já a resolução dos exercícios estão presentes aqui mesmo, para que tenha uma visualização mais rápida e fácil.
 
@@ -193,6 +193,39 @@ agrupado.plot.bar(x='MUNICIPIO',y='VALOREMPENHO', color = 'gray')
 #### [Voltar ao Sumário](#sumário)
 
 ## 4. Estatística I
+Construa exemplos de:  
+
+#### 1. Amostragem simples
+```
+# Importação das bibliotecas: pandas para carregar arquivos .csv e numpy para gerar números aleatórios
+import pandas as pd
+import numpy as np
+
+# Carregamento da base de dados e visualização dos dados
+base = pd.read_csv('iris.csv')
+base
+
+# Verificar quantas linhas e colunas existem na base de dados, 150 linhas e 5 colunas
+base.shape
+
+# Mudança da semente aleatória randômica para manter os resultados em várias execuções
+np.random.seed(2345)
+
+# Amostra aleatória de 150 valores, valores de 0 a 1, com reposição, probabilidades equivalentes (p = [0.7, 0.3] define as probabilidades de ocorrência dos valores 0 e 1)
+amostra = np.random.choice(a = [0, 1], size = 150, replace = True, p = [0.7, 0.3])
+amostra
+
+# Selecionando apenas as linhas onde o valor correspondente em amostra é igual a 0
+base_final = base.loc[amostra == 0]
+base_final.shape
+
+# Selecionando apenas as linhas onde o valor correspondente em amostra é igual a 1
+base_final2 = base.loc[amostra == 1]
+base_final2.shape
+```
+
+#### 2. Medidas de Centralidade e Variabilidade
+
 #### [Voltar ao Sumário](#sumário)
 
 ## 5. Estatística II
