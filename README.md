@@ -8,7 +8,7 @@ Estes exerícios foram apresentados no curso **Formação Cientista de Dados: O 
 Os conjuntos de dados disponibilizados pela Udemy estão presentes neste repositório, no formato .csv dentro da pasta "dados".
 
 ## Sumário
-#### [1. Introdução ao Python](#1-introdução-ao-python)
+#### [1. Introdução ao Python](#1-introdução-ao-python-1)
 
 .
 .
