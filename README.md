@@ -196,7 +196,7 @@ agrupado.plot.bar(x='MUNICIPIO',y='VALOREMPENHO', color = 'gray')
 Construa exemplos de:  
 
 #### 1. Amostragem simples
-Dados: iris.csv
+Dados: "iris.csv"
 
 ```
 # Importando as bibliotecas: pandas para carregar arquivos .csv e numpy para gerar números aleatórios
@@ -368,10 +368,10 @@ chi2_contingency(novela2)
 #### [Voltar ao Sumário](#sumário)
 
 ## 6. Regressão Linear
-Dados: slr12.csv
+Dados: "slr12.csv"
 
 1. Franquias
-- FraAnual: Taxa Anual
+- FrqAnual: Taxa Anual
 - CusInic: Investimento Inicial
 
 2. Criar um modelo de regressão linear para prever qual será o Investimento inicial necessário de uma franquia a partir da Taxa Anual cobrado pelo franqueador.
@@ -379,42 +379,110 @@ Dados: slr12.csv
 ```
 #RESOLUÇÃO
 
-# Importando as bibliotecas, sklearn para criar o modelo de regressão e yellowbrick para visualização de residuais
+# Importando as bibliotecas
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
 
 # Carregando a base de dados
 base = pd.read_csv('slr12.csv', sep=';')
 
-# Definindo as variáveis X e y, X FraAnual é a variável independente e y CusInic é a variável dependente
-X = base.iloc[:, 0].values
-y = base.iloc[:, 1].values
+# Definindo as variáveis X e y, X FrqAnual é a variável independente e y CusInic é a variável dependente
+X = base['FrqAnual'].values.reshape(-1, 1)  # Reshape para formato de matriz
+y = base['CusInic'].values
 
 # Calculando a correlação entre X e y
-correlacao = np.corrcoef(X, y)
-correlacao
+correlacao = np.corrcoef(X.flatten(), y)
+print(f"Correlação: {correlacao[0, 1]}")
 
-#formato de matriz com uma coluna a mais
-X = X.reshape(-1, 1)
-
-# Criação do modelo e treinamento (fit indica que o treinamento deve ser executado)
+# Criação do modelo e treinamento
 modelo = LinearRegression()
 modelo.fit(X, y)
 
+# Fazendo previsões
+y_pred = modelo.predict(X)
+
+# Calculando R² e erro quadrático médio
+r2 = r2_score(y, y_pred)
+mse = mean_squared_error(y, y_pred)
+print(f"R²: {r2}")
+print(f"MSE: {mse}")
+
 # Gerando o gráfico com os pontos reais e as previsões
-plt.scatter(X, y)
-plt.plot(X, modelo.predict(X), color = 'red')
-
-#valor anual da franquina
-valr =  1300
-modelo.predict([[valr]])
+plt.scatter(X, y, label='Dados Reais')
+plt.plot(X, y_pred, color='red', label='Regressão Linear')
+plt.title('Regressão Linear: Investimento Inicial vs Taxa Anual')
+plt.xlabel('Taxa Anual (%)')
+plt.ylabel('Investimento Inicial (R$)')
+plt.legend()
+plt.grid()
+plt.show()
 ```
-
 #### [Voltar ao Sumário](#sumário)
 
 ## 7. Regressão Logística
+Dados: "Eleicao.csv"; "NovosCandidatos.csv"
+
+Criar um modelo logístico para a relação entre o investimento de um candidato na campanha para um cargo legislativo e o fato dele ser eleito ou não.
+
+```
+#RESOLUÇÃO
+
+# Importando as bibliotecas
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.linear_model import LogisticRegression
+
+# Carregando a base de dados, visualização de gráfico com os pontos e visualização de estatísticas
+base = pd.read_csv('Eleicao.csv', sep = ';')
+plt.scatter(base.DESPESAS, base.SITUACAO)
+base.describe()
+
+# Visualizando o coeficiente de correlação entre o atributo "despesas" e "situação"
+np.corrcoef(base.DESPESAS, base.SITUACAO)
+
+# Criando as variávies X e y (variável independente e variável dependente)
+# Transformação de X para o formato de matriz adicionando um novo eixo (newaxis)
+X = base.iloc[:, 2].values
+X = X[:, np.newaxis]
+y = base.iloc[:, 1].values
+
+# Criação do modelo, treinamento e visualização dos coeficientes
+modelo = LogisticRegression()
+modelo.fit(X, y)
+modelo.coef_
+modelo.intercept_
+
+
+plt.scatter(X, y)
+# Gerando novos dados para gerar a função sigmoide
+X_teste = np.linspace(10, 3000, 100)
+# Implementando da função sigmoide
+def model(x):
+    return 1 / (1 + np.exp(-x))
+# Gerando previsões (variável r) e visualização dos resultados
+r = model(X_teste * modelo.coef_ + modelo.intercept_).ravel()
+plt.plot(X_teste, r, color = 'red')
+
+# Carregando a base de dados com os novos candidatos
+base_previsoes = pd.read_csv('NovosCandidatos.csv', sep = ';')
+base_previsoes
+
+# Mudança dos dados para formato de matriz
+despesas = base_previsoes.iloc[:, 1].values
+despesas = despesas.reshape(-1, 1)
+
+# Previsões e geração de nova base de dados com os valores originais e as previsões (0 não eleito; 1 eleito)
+previsoes_teste = modelo.predict(despesas)
+previsoes_teste
+
+# Tabela completa de previsões para os novos candidatos
+base_previsoes = np.column_stack((base_previsoes, previsoes_teste))
+base_previsoes
+```
 #### [Voltar ao Sumário](#sumário)
 
 ## 8. Séries Temporais
