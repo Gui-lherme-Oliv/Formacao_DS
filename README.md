@@ -340,9 +340,29 @@ binom.pmf(12, 12, 0.25)
 ```
 
 #### 4. Qui-Quadrado
+```
+# Importação das funções, chi2_contingency porque são 2 categorias
+import numpy as np
+from scipy.stats import chi2_contingency
 
+# Se existe diferença significativa entre homens e mulheres que assistem ou não novela
 
+# Criação da matriz com os dados e execução do teste
+# H: 19 sim e 6 não; M: 43 sim e 32 não
+novela = np.array([[19, 6], [43, 32]])
+novela
 
+# Segundo valor no resultado é o p-value
+# Se o p-value é maior que alfa, então não há evidências de diferença significativa (hipótese nula): não há diferença significativa
+chi2_contingency(novela)
+
+# com outros valores
+novela2 = np.array([[22, 3], [43, 32]])
+novela2
+
+# Se o valor de p for menor, pode-se rejeitar a hipótese nula em favor da hipótese alternativa: há diferença significativa
+chi2_contingency(novela2)
+```
 #### [Voltar ao Sumário](#sumário)
 
 ## 6. Regressão Linear
