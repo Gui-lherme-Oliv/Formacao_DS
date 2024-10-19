@@ -165,7 +165,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as srn
 
-# Carregamento da base de dados
+# Carregando a base de dados
 base = pd.read_csv('dados.csv', sep=';')
 base.shape
 
@@ -197,18 +197,18 @@ Construa exemplos de:
 
 #### 1. Amostragem simples
 ```
-# Importação das bibliotecas: pandas para carregar arquivos .csv e numpy para gerar números aleatórios
+# Importando as bibliotecas: pandas para carregar arquivos .csv e numpy para gerar números aleatórios
 import pandas as pd
 import numpy as np
 
-# Carregamento da base de dados e visualização dos dados
+# Carregando a base de dados e visualização dos dados
 base = pd.read_csv('iris.csv')
 base
 
-# Verificar quantas linhas e colunas existem na base de dados, 150 linhas e 5 colunas
+# Verificando quantas linhas e colunas existem na base de dados, 150 linhas e 5 colunas
 base.shape
 
-# Mudança da semente aleatória randômica para manter os resultados em várias execuções
+# Mudando a semente aleatória randômica para manter os resultados em várias execuções
 np.random.seed(2345)
 
 # Amostra aleatória de 150 valores, valores de 0 a 1, com reposição, probabilidades equivalentes
@@ -227,16 +227,16 @@ base_final2.shape
 
 #### 2. Medidas de Centralidade e Variabilidade
 ```
-# Importação das bibliotecas: scipy para gerar estatísticas mais detalhadas
+# Importando as bibliotecas: scipy para gerar estatísticas mais detalhadas
 import numpy as np
 from scipy import stats
 
-# Criação da variável com os dados dos jogadores, visualização da média e mediana
+# Criando a variável com os dados dos jogadores, visualização da média e mediana
 jogadores = [40000, 18000, 12000, 250000, 30000, 140000, 300000, 40000, 800000]
 media = np.mean(jogadores)
 mediana = np.median(jogadores)
 
-# Criação da variável para geração dos quartis (0%, 25%, 50%, 75% e 100%) 
+# Criando a variável para geração dos quartis (0%, 25%, 50%, 75% e 100%) 
 quartis = np.quantile(jogadores, [0, 0.25, 0.5, 0.75, 1])
 quartis
 
@@ -251,7 +251,7 @@ stats.describe(jogadores)
 
 #### 3. Distribuição Normal
 ```
-# Importação da função norm
+# Importando da função norm
 from scipy.stats import norm
 
 # Conjunto de objetos em uma cesta, a média é 8 e o desvio padrão é 2
@@ -271,6 +271,36 @@ norm.cdf(10, 8, 2) - norm.cdf(8, 8, 2)
 #### [Voltar ao Sumário](#sumário)
 
 ## 5. Estatística II
+Construa exemplos de:  
+
+#### 1. Distribuição T de Student
+```
+# Importando a função para fazer o teste
+from scipy.stats import t
+
+# Considere que a média de salário dos cientistas de dados = R$ 75,00 por hora; Amostra com 9 funcionários e desvio padrão = 10
+# O t-score encontrado na tabela para esse caso é de 1,5
+
+# Qual a probabilidade de selecionar um cientista de dados e o salário ser menor que R$ 80 por hora
+t.cdf(1.5, 8)
+
+# Qual a probabilidade do salário ser maior do que 80?
+t.sf(1.5, 8)
+
+# Somatório da execução dos dois códigos acima (lado esquerdo + lado direito da distribuição)
+t.cdf(1.5, 8) + t.sf(1.5, 8)
+```
+
+#### 2. Distribuição de Poisson
+
+
+#### 3. Distribuição Binomial
+
+
+#### 4. Qui-Quadrado
+
+
+
 #### [Voltar ao Sumário](#sumário)
 
 ## 6. Regressão Linear
