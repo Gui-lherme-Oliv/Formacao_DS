@@ -456,7 +456,6 @@ modelo.fit(X, y)
 modelo.coef_
 modelo.intercept_
 
-
 plt.scatter(X, y)
 # Gerando novos dados para gerar a função sigmoide
 X_teste = np.linspace(10, 3000, 100)
