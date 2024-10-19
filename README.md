@@ -425,7 +425,8 @@ plt.show()
 ## 7. Regressão Logística
 Dados: "Eleicao.csv"; "NovosCandidatos.csv"
 
-Criar um modelo logístico para a relação entre o investimento de um candidato na campanha para um cargo legislativo e o fato dele ser eleito ou não.
+1. Criar um modelo logístico para a relação entre o investimento de um candidato na campanha para um cargo legislativo e o fato dele ser eleito ou não.
+2. Com o modelo criado, fazer previsões para novos candidatos
 
 ```
 #RESOLUÇÃO
