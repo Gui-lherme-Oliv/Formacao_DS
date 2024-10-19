@@ -196,6 +196,8 @@ agrupado.plot.bar(x='MUNICIPIO',y='VALOREMPENHO', color = 'gray')
 Construa exemplos de:  
 
 #### 1. Amostragem simples
+Dados: iris.csv
+
 ```
 # Importando as bibliotecas: pandas para carregar arquivos .csv e numpy para gerar números aleatórios
 import pandas as pd
@@ -366,6 +368,50 @@ chi2_contingency(novela2)
 #### [Voltar ao Sumário](#sumário)
 
 ## 6. Regressão Linear
+Dados: slr12.csv
+
+1. Franquias
+- FraAnual: Taxa Anual
+- CusInic: Investimento Inicial
+
+2. Criar um modelo de regressão linear para prever qual será o Investimento inicial necessário de uma franquia a partir da Taxa Anual cobrado pelo franqueador.
+
+```
+#RESOLUÇÃO
+
+# Importando as bibliotecas, sklearn para criar o modelo de regressão e yellowbrick para visualização de residuais
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+
+# Carregando a base de dados
+base = pd.read_csv('slr12.csv', sep=';')
+
+# Definindo as variáveis X e y, X FraAnual é a variável independente e y CusInic é a variável dependente
+X = base.iloc[:, 0].values
+y = base.iloc[:, 1].values
+
+# Calculando a correlação entre X e y
+correlacao = np.corrcoef(X, y)
+correlacao
+
+#formato de matriz com uma coluna a mais
+X = X.reshape(-1, 1)
+
+# Criação do modelo e treinamento (fit indica que o treinamento deve ser executado)
+modelo = LinearRegression()
+modelo.fit(X, y)
+
+# Gerando o gráfico com os pontos reais e as previsões
+plt.scatter(X, y)
+plt.plot(X, modelo.predict(X), color = 'red')
+
+#valor anual da franquina
+valr =  1300
+modelo.predict([[valr]])
+```
+
 #### [Voltar ao Sumário](#sumário)
 
 ## 7. Regressão Logística
