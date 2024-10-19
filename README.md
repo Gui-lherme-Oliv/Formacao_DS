@@ -278,7 +278,7 @@ Construa exemplos de:
 # Importando a função para fazer o teste
 from scipy.stats import t
 
-# Considere que a média de salário dos cientistas de dados = R$ 75,00 por hora; Amostra com 9 funcionários e desvio padrão = 10
+# Considerando que a média de salário dos cientistas de dados = R$ 75,00 por hora; Amostra com 9 funcionários e desvio padrão = 10
 # O t-score encontrado na tabela para esse caso é de 1,5
 
 # Qual a probabilidade de selecionar um cientista de dados e o salário ser menor que R$ 80 por hora
@@ -292,10 +292,52 @@ t.cdf(1.5, 8) + t.sf(1.5, 8)
 ```
 
 #### 2. Distribuição de Poisson
+```
+# Importando a função
+from scipy.stats import poisson
 
+# Considerando que a média de acidentes de carro é 2 por dia
+
+# Qual a probabilidade de ocorrerem 3 acidentes no dia?
+poisson.pmf(3, 2)
+
+# Qual a probabilidade de ocorrerem 3 ou menos acidentes no dia?
+poisson.cdf(3, 2)
+
+# Qual a probabilidade de ocorrerem mais de 3 acidentes no dia?
+poisson.sf(3, 2)
+
+# Calculando todas as probabilidades (3 ou menos acidentes no dia + mais de 3 acidentes no dia)
+poisson.cdf(3, 2) + poisson.sf(3, 2)
+```
 
 #### 3. Distribuição Binomial
+```
+# Importando a função binom
+from scipy.stats import binom
 
+# Jogar uma moeda 5 vezes, qual a probabilidade de dar cara 3 vezes?
+# eventos , experimentos, probabilidades
+prob = binom.pmf(3, 5, 0.5)
+prob
+
+# Passar por 4 sinais de 4 tempos, qual a probabilidade de pegar sinal verde
+# nenhuma, 1, 2, 3 ou 4 vezes seguidas?
+binom.pmf(0, 4, 0.25) + binom.pmf(1, 4, 0.25) + binom.pmf(2, 4, 0.25) + binom.pmf(3, 4, 0.25) + binom.pmf(4, 4, 0.25)
+
+# E se forem sinais de dois tempos?
+binom.pmf(4, 4, 0.5)
+
+# Probabilidade acumulativa
+binom.cdf(4, 4, 0.25)
+
+# Concurso com 12 questões, qual a probabilidade de acertar 7 questões considerando
+# que cada questão tem 4 alternativas?
+binom.pmf(7, 12, 0.25)
+
+# Probabilidade de acertar as 12 questões
+binom.pmf(12, 12, 0.25)
+```
 
 #### 4. Qui-Quadrado
 
