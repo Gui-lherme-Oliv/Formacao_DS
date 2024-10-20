@@ -625,7 +625,7 @@ plt.legend(loc = 'best')
 plt.tight_layout()
 ```
 
-#### 3. Previsões com Arima
+#### 3. Previsões com Arima (AutoRegressive Integrated Moving Average)
 ```
 # Importando as bibliotecas (inclusive instalando a pmdarima)
 import pandas as pd
@@ -645,8 +645,8 @@ data = pd.read_csv('AirPassengers.csv', parse_dates=['Month'], index_col='Month'
 
 plt.plot(data)
 
-# O código abaixo usa a função auto_arima da biblioteca pmdarima para ajustar um modelo ARIMA (AutoRegressive Integrated Moving Average)
-# aos dados fornecidos na variável data.
+# O código abaixo usa a função auto_arima da biblioteca pmdarima para ajustar
+# um modelo ARIMA aos dados fornecidos na variável data.
 stepwise_model = auto_arima(data, start_p=1,start_q=1,start_d= 0, start_P=0, max_p=6, max_q=6, m=12, seasonal=True, trace=True, stepwise=False)
 
 # Critério de Informação de Akaike (AIC, na sigla em inglês), que é uma medida usada para comparar modelos estatísticos
