@@ -426,7 +426,7 @@ plt.show()
 Dados: "Eleicao.csv"; "NovosCandidatos.csv"
 
 1. Criar um modelo logístico para a relação entre o investimento de um candidato na campanha para um cargo legislativo e o fato dele ser eleito ou não.
-2. Com o modelo criado, fazer previsões para novos candidatos
+2. Com o modelo criado, fazer previsões para novos candidatos.
 
 ```
 #RESOLUÇÃO
@@ -486,6 +486,79 @@ base_previsoes
 #### [Voltar ao Sumário](#sumário)
 
 ## 8. Séries Temporais
+Dados: "AirPassengers.csv"
+
+#### 1. Tratamento de séries temporais
+```
+# Importando as bibliotecas
+import pandas as pd
+import numpy as np
+import matplotlib.pylab as plt
+from datetime import datetime
+#registro de converters para uso do matplotlib
+from pandas.plotting import register_matplotlib_converters
+register_matplotlib_converters()
+
+# Carregando a base de dados
+base = pd.read_csv('AirPassengers.csv')
+base.head()
+
+# Visualizando o tipo de dados dos atributos
+print(base.dtypes)
+
+# Convertendo os atributos que estão no formato string para formato de data: ANO-MÊS
+dateparse = lambda dates: datetime.strptime(dates, '%Y-%m')
+base = pd.read_csv('AirPassengers.csv', parse_dates = ['Month'],
+                   index_col = 'Month', date_parser = dateparse)
+base
+
+# Visualizando o índice do dataframe (#Passengers)
+base.index
+
+# Criando a série temporal (ts)
+ts = base['#Passengers']
+ts
+
+# Visualização de registro específico
+ts[1]
+
+# Visualização por ano e mês
+ts['1949-02']
+
+# Visualização de data específica
+ts[datetime(1949,2,1)]
+
+# Visualização de intervalos
+ts['1950-01-01':'1950-07-31']
+
+# Visualização de intervalos sem preencher a data de início
+ts[:'1950-07-31']
+
+# Visualização por ano
+ts['1950']
+
+# Valores máximos
+ts.index.max()
+
+# Valores mínimos
+ts.index.min()
+
+# Visualização da série temporal completa
+plt.plot(ts)
+
+# Visualização por ano (agregando a série temporal em intervalos anuais)
+ts_ano = ts.resample('A').sum()
+plt.plot(ts_ano)
+ts_ano
+
+# Visualização por mês
+ts_mes = ts.groupby([lambda x: x.month]).sum()
+plt.plot(ts_mes)
+
+# Visualização entre datas específicas
+ts_datas = ts['1960-01-01':'1960-12-01']
+plt.plot(ts_datas)
+```
 #### [Voltar ao Sumário](#sumário)
 
 ## 9. Machine Learning
