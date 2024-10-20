@@ -673,7 +673,7 @@ pd.concat([data,future_forecast],axis=1).plot(linewidth=3)
 #### [Voltar ao Sumário](#sumário)
 
 ## 9. Machine Learning
-Dados: "Credit.csv"
+Dados: "Credit.csv"; "Credit2.csv"; "NovoCredit.csv"
 
 Crie modelos de ML para indicar se os clientes são bons ou mal pagadores.
 
@@ -794,6 +794,9 @@ naive_bayes.predict(novo_credito)
 ```
 
 #### 9.2. Árvores de Decisão
+
+
+
 
 #### 9.3. Seleção de Atributos
 
