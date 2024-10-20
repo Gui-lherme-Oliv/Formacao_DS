@@ -561,7 +561,7 @@ plt.plot(ts_datas)
 ```
 
 #### 2. Decomposição
-````
+```
 # Importando as bibliotecas
 import pandas as pd
 import matplotlib.pylab as plt
@@ -620,13 +620,54 @@ plt.legend(loc = 'best')
 
 # Visualização somente do elemento aleatório
 plt.subplot(4,1,4)
-plt.plot(aleatorio, label = 'Aletório')
+plt.plot(aleatorio, label = 'Aleatório')
 plt.legend(loc = 'best')
 plt.tight_layout()
-````
+```
 
 #### 3. Previsões com Arima
+```
+# Importando as bibliotecas (inclusive instalando a pmdarima)
+import pandas as pd
+import numpy as np
+import matplotlib.pylab as plt
+%matplotlib inline
+from matplotlib.pylab import rcParams
+rcParams['figure.figsize'] = 15, 6
+from datetime import datetime
 
+!pip install pmdarima
+from pmdarima.arima import auto_arima
+
+# Convertendo os atributos que estão no formato string para o formato ano-mês
+dateparse = lambda dates: datetime.strptime(dates, '%Y-%m')
+data = pd.read_csv('AirPassengers.csv', parse_dates=['Month'], index_col='Month',date_parser=dateparse)
+
+plt.plot(data)
+
+# O código abaixo usa a função auto_arima da biblioteca pmdarima para ajustar um modelo ARIMA (AutoRegressive Integrated Moving Average)
+# aos dados fornecidos na variável data.
+stepwise_model = auto_arima(data, start_p=1,start_q=1,start_d= 0, start_P=0, max_p=6, max_q=6, m=12, seasonal=True, trace=True, stepwise=False)
+
+# Critério de Informação de Akaike (AIC, na sigla em inglês), que é uma medida usada para comparar modelos estatísticos
+print(stepwise_model.aic())
+
+# Separando treino e teste
+train = data.loc['1949-01-01':'1959-12-01']
+test = data.loc['1960-01-01':]
+
+#Treino e previsão 12 meses para frente
+stepwise_model.fit(train)
+future_forecast = stepwise_model.predict(n_periods=12)
+future_forecast
+
+# Comparando o que aconteceu de fato com os resultados previstos
+future_forecast = pd.DataFrame(future_forecast,index = test.index,columns=["#Passengers"])
+pd.concat([test,future_forecast],axis=1).plot() #azul test; laranja forecast
+
+# Toda a série temporal com a previsão
+pd.concat([data,future_forecast],axis=1).plot(linewidth=3)
+```
 #### [Voltar ao Sumário](#sumário)
 
 ## 9. Machine Learning
