@@ -671,6 +671,20 @@ pd.concat([data,future_forecast],axis=1).plot(linewidth=3)
 #### [Voltar ao Sumário](#sumário)
 
 ## 9. Machine Learning
+#### 1. Naive Bayes
+
+#### 2. Árvores de Decisão
+
+#### 3. Seleção de Atributos
+
+#### 4. Ensamble Learning com Random Forest
+
+#### 5. Agrupamento com K-Means
+
+#### 6. Agrupamento com C-Means
+
+
+
 #### [Voltar ao Sumário](#sumário)
 
 ## 10. Neural Networks e Deep Learning
