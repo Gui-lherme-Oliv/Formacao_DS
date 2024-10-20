@@ -195,7 +195,7 @@ agrupado.plot.bar(x='MUNICIPIO',y='VALOREMPENHO', color = 'gray')
 ## 4. Estatística I
 Construa exemplos de:  
 
-#### 1. Amostragem simples
+#### 4.1. Amostragem simples
 Dados: "iris.csv"
 
 ```
@@ -227,7 +227,7 @@ base_final2 = base.loc[amostra == 1]
 base_final2.shape
 ```
 
-#### 2. Medidas de Centralidade e Variabilidade
+#### 4.2. Medidas de Centralidade e Variabilidade
 ```
 # Importando as bibliotecas: scipy para gerar estatísticas mais detalhadas
 import numpy as np
@@ -251,7 +251,7 @@ np.std(jogadores, ddof = 1)
 stats.describe(jogadores)
 ```
 
-#### 3. Distribuição Normal
+#### 4.3. Distribuição Normal
 ```
 # Importando da função norm
 from scipy.stats import norm
@@ -275,7 +275,7 @@ norm.cdf(10, 8, 2) - norm.cdf(8, 8, 2)
 ## 5. Estatística II
 Construa exemplos de:  
 
-#### 1. Distribuição T de Student
+#### 5.1. Distribuição T de Student
 ```
 # Importando a função para fazer o teste
 from scipy.stats import t
@@ -293,7 +293,7 @@ t.sf(1.5, 8)
 t.cdf(1.5, 8) + t.sf(1.5, 8)
 ```
 
-#### 2. Distribuição de Poisson
+#### 5.2. Distribuição de Poisson
 ```
 # Importando a função
 from scipy.stats import poisson
@@ -313,7 +313,7 @@ poisson.sf(3, 2)
 poisson.cdf(3, 2) + poisson.sf(3, 2)
 ```
 
-#### 3. Distribuição Binomial
+#### 5.3. Distribuição Binomial
 ```
 # Importando a função binom
 from scipy.stats import binom
@@ -341,7 +341,7 @@ binom.pmf(7, 12, 0.25)
 binom.pmf(12, 12, 0.25)
 ```
 
-#### 4. Qui-Quadrado
+#### 5.4. Qui-Quadrado
 ```
 # Importação das funções, chi2_contingency porque são 2 categorias
 import numpy as np
@@ -490,7 +490,7 @@ Dados: "AirPassengers.csv"
 
 Faça uma análise inicial dessa série temporal, decomponha e realize previsões com ARIMA.
 
-#### 1. Tratamento de séries temporais
+#### 8.1. Tratamento de séries temporais
 ```
 # Importando as bibliotecas
 import pandas as pd
@@ -562,7 +562,7 @@ ts_datas = ts['1960-01-01':'1960-12-01']
 plt.plot(ts_datas)
 ```
 
-#### 2. Decomposição
+#### 8.2. Decomposição
 ```
 # Importando as bibliotecas
 import pandas as pd
@@ -627,7 +627,7 @@ plt.legend(loc = 'best')
 plt.tight_layout()
 ```
 
-#### 3. Previsões com Arima (AutoRegressive Integrated Moving Average)
+#### 8.3. Previsões com Arima (AutoRegressive Integrated Moving Average)
 ```
 # Importando as bibliotecas (inclusive instalando a pmdarima)
 import pandas as pd
@@ -677,7 +677,7 @@ Dados: "Credit.csv"
 
 Crie modelos de ML para indicar se os clientes são bons ou mal pagadores.
 
-#### 1. Naive Bayes
+#### 9.1. Naive Bayes
 ```
 # Importando as bibliotecas
 import pandas as pd
@@ -793,15 +793,15 @@ novo_credito[:, 19] = labelencoder13.transform(novo_credito[:, 19])
 naive_bayes.predict(novo_credito)
 ```
 
-#### 2. Árvores de Decisão
+#### 9.2. Árvores de Decisão
 
-#### 3. Seleção de Atributos
+#### 9.3. Seleção de Atributos
 
-#### 4. Ensamble Learning com Random Forest
+#### 9.4. Ensamble Learning com Random Forest
 
-#### 5. Agrupamento com K-Means
+#### 9.5. Agrupamento com K-Means
 
-#### 6. Agrupamento com C-Means
+#### 9.6. Agrupamento com C-Means
 
 
 
