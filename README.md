@@ -559,6 +559,74 @@ plt.plot(ts_mes)
 ts_datas = ts['1960-01-01':'1960-12-01']
 plt.plot(ts_datas)
 ```
+
+#### 2. Decomposição
+````
+# Importando as bibliotecas
+import pandas as pd
+import matplotlib.pylab as plt
+from statsmodels.tsa.seasonal import seasonal_decompose
+from datetime import datetime
+#registro de converters para uso do matplotlib
+from pandas.plotting import register_matplotlib_converters
+register_matplotlib_converters()
+
+# Carregando a base de dados, convertendo o atributo para data e criando a série temporal (ts)
+base = pd.read_csv('AirPassengers.csv')
+dateparse = lambda dates: datetime.strptime(dates, '%Y-%m')
+base = pd.read_csv('AirPassengers.csv', parse_dates = ['Month'],
+                   index_col = 'Month', date_parser = dateparse)
+ts = base['#Passengers']
+
+# Visualizando a série temporal
+plt.plot(ts)
+
+# Decomposição da série temporal, criando uma variável para cada formato
+decomposicao = seasonal_decompose(ts)
+
+# Tendência
+tendencia = decomposicao.trend
+tendencia
+
+# Sazonalidade
+sazonal = decomposicao.seasonal
+sazonal
+
+# Erro
+aleatorio = decomposicao.resid
+aleatorio
+
+# Gráfico para cada formato da série temporal
+plt.plot(sazonal)
+
+plt.plot(tendencia)
+
+plt.plot(aleatorio)
+
+# Todos os gráficos
+plt.subplot(4,1,1)
+plt.plot(ts, label = 'Original')
+plt.legend(loc = 'best')
+
+# Visualização somente da tendência
+plt.subplot(4,1,2)
+plt.plot(tendencia, label = 'Tendência')
+plt.legend(loc = 'best')
+
+# Visualização somente da sazonalidade
+plt.subplot(4,1,3)
+plt.plot(sazonal, label = 'Sazonalidade')
+plt.legend(loc = 'best')
+
+# Visualização somente do elemento aleatório
+plt.subplot(4,1,4)
+plt.plot(aleatorio, label = 'Aletório')
+plt.legend(loc = 'best')
+plt.tight_layout()
+````
+
+#### 3. Previsões com Arima
+
 #### [Voltar ao Sumário](#sumário)
 
 ## 9. Machine Learning
