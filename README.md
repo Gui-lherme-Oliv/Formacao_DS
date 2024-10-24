@@ -13,13 +13,13 @@ Os conjuntos de dados disponibilizados pela Udemy estão presentes neste reposit
 ### [3. Gráficos, Visualização e Dashboards](#3-gráficos-visualização-e-dashboards-1)
 ### [4. Estatística I](#4-estatística-i-1)
 #### [4.1. Amostragem simples](#41-amostragem-simples-1)
-#### [4.2. Medidas de Centralidade e Variabilidade](#42-medidas-de-centralidade-e-variabilidade)
-#### [4.3. Distribuição Normal](#43-distribuição-normal)
-
-
-
-
+#### [4.2. Medidas de Centralidade e Variabilidade](#42-medidas-de-centralidade-e-variabilidade-1)
+#### [4.3. Distribuição Normal](#43-distribuição-normal-1)
 ### [5. Estatística II](#5-estatística-ii-1)
+#### [5.1. Distribuição T de Student](#51-distribuição-t-de-student-1)
+#### [5.2. Distribuição de Poisson](#52-distribuição-de-poisson-1)
+#### [5.3. Distribuição Binomial](#53-distribuição-binomial-1)
+#### [5.4. Qui-Quadrado](#54-qui-quadrado-1)
 ### [6. Regressão Linear](#6-regressão-linear-1)
 ### [7. Regressão Logística](#7-regressão-logística-1)
 ### [8. Séries Temporais](#8-séries-temporais-1)
