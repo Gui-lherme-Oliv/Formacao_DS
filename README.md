@@ -8,22 +8,29 @@ Estes exercícios foram apresentados no curso **Formação Cientista de Dados: O
 Os conjuntos de dados disponibilizados pela Udemy estão presentes neste repositório, no formato .csv dentro da pasta "dados". Já a resolução dos exercícios estão presentes aqui mesmo, para que tenha uma visualização mais rápida e fácil.
 
 ## Sumário
-#### [1. Introdução ao Python](#1-introdução-ao-python-1)
-#### [2. Limpeza e Tratamento de dados](#2-limpeza-e-tratamento-de-dados-1)
-#### [3. Gráficos, Visualização e Dashboards](#3-gráficos-visualização-e-dashboards-1)
-#### [4. Estatística I](#4-estatística-i-1)
-#### [5. Estatística II](#5-estatística-ii-1)
-#### [6. Regressão Linear](#6-regressão-linear-1)
-#### [7. Regressão Logística](#7-regressão-logística-1)
-#### [8. Séries Temporais](#8-séries-temporais-1)
-#### [9. Machine Learning](#9-machine-learning-1)
-#### [10. Neural Networks e Deep Learning](#10-neural-networks-e-deep-learning-1)
-#### [11. Grafos](#11-grafos-1)
-#### [12. Processamento de Linguagem Natural e Mineração de Texto](#12-processamento-de-linguagem-natural-e-mineração-de-texto-1)
-#### [13. Bancos de Dados e Linguagem SQL](#13-bancos-de-dados-e-linguagem-sql-1)
-#### [14. Bancos de Dados NoSQL e MongoDB](#14-bancos-de-dados-nosql-e-mongodb-1)
-#### [15. Computação na Nuvem](#15-computação-na-nuvem-1)
-#### [16. Spark com Databricks](#16-spark-com-databricks-1)  
+### [1. Introdução ao Python](#1-introdução-ao-python-1)
+### [2. Limpeza e Tratamento de dados](#2-limpeza-e-tratamento-de-dados-1)
+### [3. Gráficos, Visualização e Dashboards](#3-gráficos-visualização-e-dashboards-1)
+### [4. Estatística I](#4-estatística-i-1)
+#### [4.1. Amostragem simples](#41-amostragem-simples)
+#### [4.2. Medidas de Centralidade e Variabilidade](#42-medidas-de-centralidade-e-variabilidade)
+#### [4.3. Distribuição Normal](#43-distribuição-normal)
+
+
+
+
+### [5. Estatística II](#5-estatística-ii-1)
+### [6. Regressão Linear](#6-regressão-linear-1)
+### [7. Regressão Logística](#7-regressão-logística-1)
+### [8. Séries Temporais](#8-séries-temporais-1)
+### [9. Machine Learning](#9-machine-learning-1)
+### [10. Neural Networks e Deep Learning](#10-neural-networks-e-deep-learning-1)
+### [11. Grafos](#11-grafos-1)
+### [12. Processamento de Linguagem Natural e Mineração de Texto](#12-processamento-de-linguagem-natural-e-mineração-de-texto-1)
+### [13. Bancos de Dados e Linguagem SQL](#13-bancos-de-dados-e-linguagem-sql-1)
+### [14. Bancos de Dados NoSQL e MongoDB](#14-bancos-de-dados-nosql-e-mongodb-1)
+### [15. Computação na Nuvem](#15-computação-na-nuvem-1)
+### [16. Spark com Databricks](#16-spark-com-databricks-1)  
 ---
 ## 1. Introdução ao Python
 1. Faça um programa que tenha uma função chamada amplitude. A função deve receber uma lista e imprimir a amplitude.
