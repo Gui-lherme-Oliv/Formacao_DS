@@ -12,7 +12,7 @@ Os conjuntos de dados disponibilizados pela Udemy estão presentes neste reposit
 ### [2. Limpeza e Tratamento de dados](#2-limpeza-e-tratamento-de-dados-1)
 ### [3. Gráficos, Visualização e Dashboards](#3-gráficos-visualização-e-dashboards-1)
 ### [4. Estatística I](#4-estatística-i-1)
-#### [4.1. Amostragem simples](#41-amostragem-simples)
+#### [4.1. Amostragem simples](#41-amostragem-simples-1)
 #### [4.2. Medidas de Centralidade e Variabilidade](#42-medidas-de-centralidade-e-variabilidade)
 #### [4.3. Distribuição Normal](#43-distribuição-normal)
 
