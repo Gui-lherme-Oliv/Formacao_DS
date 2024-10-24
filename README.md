@@ -675,7 +675,7 @@ pd.concat([data,future_forecast],axis=1).plot(linewidth=3)
 ## 9. Machine Learning
 Dados: "Credit.csv"; "Credit2.csv"; "NovoCredit.csv"
 
-Crie modelos de ML para indicar se os clientes são bons ou mal pagadores.
+Crie modelos de ML para indicar se os clientes são bons ('good') ou mau ('bad') pagadores.
 
 #### 9.1. Naive Bayes
 ```
@@ -794,9 +794,77 @@ naive_bayes.predict(novo_credito)
 ```
 
 #### 9.2. Árvores de Decisão
+```
+# Importando as bibliotecas
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import confusion_matrix, accuracy_score
+from sklearn.tree import DecisionTreeClassifier
+import graphviz
+from sklearn.tree import export_graphviz
 
+# Carregamento da base de dados e definição dos previsores (variáveis independentes - X) e classe (variável dependente - y)
+credito = pd.read_csv('Credit.csv')
+credito.shape
 
+previsores = credito.iloc[:,0:20].values
+classe = credito.iloc[:,20].values
 
+# Conversão dos atributos categóricos para atributos numéricos, passando o índice de cada atributo categórico
+labelencoder = LabelEncoder()
+previsores[:,0] = labelencoder.fit_transform(previsores[:,0])
+previsores[:,2] = labelencoder.fit_transform(previsores[:,2])
+previsores[:, 3] = labelencoder.fit_transform(previsores[:, 3])
+previsores[:, 5] = labelencoder.fit_transform(previsores[:, 5])
+previsores[:, 6] = labelencoder.fit_transform(previsores[:, 6])
+previsores[:, 8] = labelencoder.fit_transform(previsores[:, 8])
+previsores[:, 9] = labelencoder.fit_transform(previsores[:, 9])
+previsores[:, 11] = labelencoder.fit_transform(previsores[:, 11])
+previsores[:, 13] = labelencoder.fit_transform(previsores[:, 13])
+previsores[:, 14] = labelencoder.fit_transform(previsores[:, 14])
+previsores[:, 16] = labelencoder.fit_transform(previsores[:, 16])
+previsores[:, 18] = labelencoder.fit_transform(previsores[:, 18])
+previsores[:, 19] = labelencoder.fit_transform(previsores[:, 19])
+
+# Código otimizado utilizando um loop para aplicar a transformação com LabelEncoder
+# Índices das colunas categóricas
+# colunas_categoricas = [0, 2, 3, 5, 6, 8, 9, 11, 13, 14, 16, 18, 19]
+# Aplicando LabelEncoder para as colunas categóricas
+# labelencoder = LabelEncoder()
+# for coluna in colunas_categoricas:
+#    previsores[:, coluna] = labelencoder.fit_transform(previsores[:, coluna])
+
+# Divisão da base de dados entre treinamento e teste. Usando 30% para testar e 70% para treinar.
+# Random_state = 0 para sempre obter a mesma divisão da base quando o código for executado
+X_treinamento, X_teste, y_treinamento, y_teste = train_test_split(previsores,
+                                                                  classe,
+                                                                  test_size = 0.3,
+                                                                  random_state = 0)
+
+# Criação e treinamento do modelo
+arvore = DecisionTreeClassifier()
+arvore.fit(X_treinamento, y_treinamento)
+
+# Exportação da árvore de decisão para o formato .dot, para posterior visualização
+export_graphviz(arvore, out_file = 'tree.dot')
+
+# Obtenção das previsões
+previsoes = arvore.predict(X_teste)
+previsoes
+
+#matriz de confusão
+confusao = confusion_matrix(y_teste, previsoes)
+confusao
+
+#taxa acerto
+taxa_acerto = accuracy_score(y_teste, previsoes)
+taxa_acerto
+
+#taxa erro
+taxa_erro = 1 - taxa_acerto
+taxa_erro
+```
 
 #### 9.3. Seleção de Atributos
 
