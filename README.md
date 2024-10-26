@@ -34,12 +34,11 @@ Os conjuntos de dados disponibilizados pela Udemy estão presentes neste reposit
 #### [9.5. Agrupamento com K-Means](#95-agrupamento-com-k-means-1)
 #### [9.6. Agrupamento com C-Means](#96-agrupamento-com-c-means-1)
 ### [10. Neural Networks e Deep Learning](#10-neural-networks-e-deep-learning-1)
-### [11. Grafos](#11-grafos-1)
-### [12. Processamento de Linguagem Natural e Mineração de Texto](#12-processamento-de-linguagem-natural-e-mineração-de-texto-1)
-### [13. Bancos de Dados e Linguagem SQL](#13-bancos-de-dados-e-linguagem-sql-1)
-### [14. Bancos de Dados NoSQL e MongoDB](#14-bancos-de-dados-nosql-e-mongodb-1)
-### [15. Computação na Nuvem](#15-computação-na-nuvem-1)
-### [16. Spark com Databricks](#16-spark-com-databricks-1)  
+### [11. Mineração de Texto e Processamento de Linguagem Natural](#11-mineração-de-texto-e-processamento-de-linguagem-natural-1)
+### [12. Bancos de Dados e Linguagem SQL](#12-bancos-de-dados-e-linguagem-sql-1)
+### [13. Bancos de Dados NoSQL e MongoDB](#13-bancos-de-dados-nosql-e-mongodb-1)
+### [14. Computação na Nuvem](#14-computação-na-nuvem-1)
+### [15. Spark com Databricks](#15-spark-com-databricks-1)  
 ---
 ## 1. Introdução ao Python
 1. Faça um programa que tenha uma função chamada amplitude. A função deve receber uma lista e imprimir a amplitude.
@@ -1088,7 +1087,7 @@ Dados: 'soybean.csv'
 
 Diagnóstico de doenças em soja.
 
-1. Crie um modelo de ML (pode usar RNA/DL etc)
+1. Crie um modelo de ML (pode usar RNA/DL, etc)
 2. Busque a melhor performance
 
 Conjunto de Dados:
@@ -1099,6 +1098,7 @@ Conjunto de Dados:
 ```
 #RESOLUÇÃO
 
+# Utilizando Random Forest
 # Importando as bibliotecas
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
@@ -1206,22 +1206,22 @@ print(f"Taxa de acerto: {accuracy * 100:.2f}%")
 ```
 #### [Voltar ao Sumário](#sumário)
 
-## 11. Grafos
+## 11. Mineração de Texto e Processamento de Linguagem Natural
+
+
+
 #### [Voltar ao Sumário](#sumário)
 
-## 12. Processamento de Linguagem Natural e Mineração de Texto
+## 12. Bancos de Dados e Linguagem SQL
 #### [Voltar ao Sumário](#sumário)
 
-## 13. Bancos de Dados e Linguagem SQL
+## 13. Bancos de Dados NoSQL e MongoDB
 #### [Voltar ao Sumário](#sumário)
 
-## 14. Bancos de Dados NoSQL e MongoDB
+## 14. Computação na Nuvem
 #### [Voltar ao Sumário](#sumário)
 
-## 15. Computação na Nuvem
-#### [Voltar ao Sumário](#sumário)
-
-## 16. Spark com Databricks
+## 15. Spark com Databricks
 #### [Voltar ao Sumário](#sumário)
 
 </div>
