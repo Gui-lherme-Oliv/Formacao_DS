@@ -35,6 +35,8 @@ Os conjuntos de dados disponibilizados pela Udemy estão presentes neste reposit
 #### [9.6. Agrupamento com C-Means](#96-agrupamento-com-c-means-1)
 ### [10. Neural Networks e Deep Learning](#10-neural-networks-e-deep-learning-1)
 ### [11. Mineração de Texto e Processamento de Linguagem Natural](#11-mineração-de-texto-e-processamento-de-linguagem-natural-1)
+#### [11.1. Mineração de Texto](#111-mineração-de-texto-1)
+#### [11.2. Transformers e GPT com OpenAI](#112-transformers-e-gpt-com-openai-1)
 ### [12. Bancos de Dados e Linguagem SQL](#12-bancos-de-dados-e-linguagem-sql-1)
 ### [13. Bancos de Dados NoSQL e MongoDB](#13-bancos-de-dados-nosql-e-mongodb-1)
 ### [14. Computação na Nuvem](#14-computação-na-nuvem-1)
@@ -1236,7 +1238,7 @@ arquivos[0]
 #zero a 10
 arquivos[0:10]
 
-#imprime todos os nomes
+# Imprime todos os nomes
 for a in arquivos:
     print(a)
 
@@ -1253,7 +1255,7 @@ palavras = corpus.words()
 #acessando pelo indíce
 palavras[170]
 
-#quantidade
+# Quantidade
 len(palavras)
 
 # Usando o NLTK, obtém-se as stop word em inglês
