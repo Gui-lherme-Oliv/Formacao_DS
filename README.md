@@ -37,6 +37,7 @@ Os conjuntos de dados disponibilizados pela Udemy estão presentes neste reposit
 ### [11. Mineração de Texto e Processamento de Linguagem Natural](#11-mineração-de-texto-e-processamento-de-linguagem-natural-1)
 #### [11.1. Mineração de Texto](#111-mineração-de-texto-1)
 #### [11.2. Transformers e GPT com OpenAI](#112-transformers-e-gpt-com-openai-1)
+#### [11.3. GPT com OpenAI](#113-gpt-com-openai-1)
 ### [12. Bancos de Dados e Linguagem SQL](#12-bancos-de-dados-e-linguagem-sql-1)
 ### [13. Bancos de Dados NoSQL e MongoDB](#13-bancos-de-dados-nosql-e-mongodb-1)
 ### [14. Computação na Nuvem](#14-computação-na-nuvem-1)
@@ -1291,8 +1292,28 @@ mais_comuns = frequencia.most_common(100)
 mais_comuns
 ```
 
-#### 11.2. Transformers e GPT com OpenAI
+#### 11.2. Transformers
+```
+# Instalação das bibliotecas
+# Biblioteca transformers da Hugging Face, que é muito utilizada para processamento de linguagem natural (NLP)
+!pip install transformers
 
+import transformers
+from transformers import pipeline
+
+# Criando a variável para o pipeline
+qea = pipeline("question-answering", model="pierreguillou/bert-base-cased-squad-v1.1-portuguese")
+
+# Contexto e pergunta
+texto = "Carl Sagan foi um cientista norte-americano. Sagan é autor de mais de 600 publicações científicas e também de mais de vinte livros de ciência e ficção científica."
+pergunta = "Quantas publicações cientificas Carl Sagan tem publicado?"
+resposta = qea(question=pergunta, context=texto)
+print("Pergunta: ", pergunta)
+print("Resposta: ", resposta['answer'])
+print("Score: ", resposta['score'])
+```
+
+#### 11.3. GPT com OpenAI
 
 
 #### [Voltar ao Sumário](#sumário)
