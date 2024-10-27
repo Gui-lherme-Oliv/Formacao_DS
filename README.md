@@ -36,7 +36,7 @@ Os conjuntos de dados disponibilizados pela Udemy estão presentes neste reposit
 ### [10. Neural Networks e Deep Learning](#10-neural-networks-e-deep-learning-1)
 ### [11. Mineração de Texto e Processamento de Linguagem Natural](#11-mineração-de-texto-e-processamento-de-linguagem-natural-1)
 #### [11.1. Mineração de Texto](#111-mineração-de-texto-1)
-#### [11.2. Transformers e GPT com OpenAI](#112-transformers-e-gpt-com-openai-1)
+#### [11.2. Transformers](#112-transformers-1)
 #### [11.3. GPT com OpenAI](#113-gpt-com-openai-1)
 ### [12. Bancos de Dados e Linguagem SQL](#12-bancos-de-dados-e-linguagem-sql-1)
 ### [13. Bancos de Dados NoSQL e MongoDB](#13-bancos-de-dados-nosql-e-mongodb-1)
