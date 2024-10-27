@@ -1314,8 +1314,35 @@ print("Score: ", resposta['score'])
 ```
 
 #### 11.3. GPT com OpenAI
+```
+# Instalação das bibliotecas
+!pip install openai
 
+import openai
 
+# Configuração da chave da API
+openai.api_key = "..." # no lugar das reticências deve ir a chave da API criada no site da OpenAI
+
+# Geração de texto com a API da OpenAI
+response_text = openai.Completion.create(
+    model="text-davinci-003",
+    prompt="Quem foi Carl Sagan?",
+    max_tokens=200,
+    temperature=0.7
+)
+print("Resposta do modelo de texto:")
+print(response_text.choices[0].text.strip())
+
+# Geração de imagem com a API da OpenAI
+response_image = openai.Image.create(
+    prompt = "crie uma imagem 3d de um disco voador na cor verde",
+    size = "512x512",# "246x256"
+    n = 1,
+    response_format = "url"
+)
+print("\nURL da imagem gerada:")
+print(response_image["data"][0]["url"])
+```
 #### [Voltar ao Sumário](#sumário)
 
 ## 12. Bancos de Dados e Linguagem SQL
