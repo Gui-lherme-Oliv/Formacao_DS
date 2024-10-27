@@ -38,10 +38,6 @@ Os conjuntos de dados disponibilizados pela Udemy estão presentes neste reposit
 #### [11.1. Mineração de Texto](#111-mineração-de-texto-1)
 #### [11.2. Transformers](#112-transformers-1)
 #### [11.3. GPT com OpenAI](#113-gpt-com-openai-1)
-### [12. Bancos de Dados e Linguagem SQL](#12-bancos-de-dados-e-linguagem-sql-1)
-### [13. Bancos de Dados NoSQL e MongoDB](#13-bancos-de-dados-nosql-e-mongodb-1)
-### [14. Computação na Nuvem](#14-computação-na-nuvem-1)
-### [15. Spark com Databricks](#15-spark-com-databricks-1)  
 ---
 ## 1. Introdução ao Python
 1. Faça um programa que tenha uma função chamada amplitude. A função deve receber uma lista e imprimir a amplitude.
@@ -1343,18 +1339,6 @@ response_image = openai.Image.create(
 print("\nURL da imagem gerada:")
 print(response_image["data"][0]["url"])
 ```
-#### [Voltar ao Sumário](#sumário)
-
-## 12. Bancos de Dados e Linguagem SQL
-#### [Voltar ao Sumário](#sumário)
-
-## 13. Bancos de Dados NoSQL e MongoDB
-#### [Voltar ao Sumário](#sumário)
-
-## 14. Computação na Nuvem
-#### [Voltar ao Sumário](#sumário)
-
-## 15. Spark com Databricks
 #### [Voltar ao Sumário](#sumário)
 
 </div>
